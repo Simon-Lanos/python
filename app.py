@@ -51,3 +51,30 @@ st.text('On affiche une petite heatmap de correlation')
 
 st.write(sns.heatmap(data.corr(), annot=True))
 st.pyplot()
+
+st.subheader("Graph dynamique")
+
+columns_names = data.columns.tolist()
+type_of_graph = st.selectbox("Choisir un type", ["area", "bar", "line", "hist", "box", "kde"])
+selected_columns_names = st.multiselect("Choisir une/des colonne(s)", columns_names)
+
+if st.button("Générer le graphique"):
+    st.success("Génération de graph personalisé de type {} pour {}".format(type_of_graph, selected_columns_names))
+
+    if type_of_graph == 'area':
+        sub_data = data[selected_columns_names]
+        st.area_chart(sub_data)
+
+    elif type_of_graph == 'bar':
+        sub_data = data[selected_columns_names]
+        st.bar_chart(sub_data)
+
+    elif type_of_graph == 'line':
+        sub_data = data[selected_columns_names]
+        st.line_chart(sub_data)
+
+    # Custom Plot 
+    elif type_of_graph:
+        cust_graph = data[selected_columns_names].plot(kind=type_of_graph)
+        st.write(cust_graph)
+        st.pyplot()
