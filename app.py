@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 st.title("Petite app Streamlit de data visualisation")
 st.header("Voyons ce que ce framework à dans le ventre")
@@ -49,6 +48,6 @@ st.write(data.shape)
 st.write(data.describe())
 
 st.text('On affiche une petite heatmap de correlation')
-plt.subplots(figsize=(12,8))
+
 st.write(sns.heatmap(data.corr(), annot=True))
 st.pyplot()
