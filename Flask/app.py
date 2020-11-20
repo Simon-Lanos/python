@@ -3,7 +3,7 @@ from flask import Flask, jsonify, json
 from jinja2 import Environment, PackageLoader, select_autoescape
 
 env = Environment(
-    loader=PackageLoader('app_flask', 'templates'),
+    loader=PackageLoader('app', 'templates'),
     autoescape=select_autoescape(['html', 'xml'])
 )
 app = Flask(__name__)
