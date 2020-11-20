@@ -6,7 +6,7 @@ RUN python -m pip install --upgrade pip
 WORKDIR /usr/src/app
 COPY ./Flask .
 
-RUN python -m pip install -r /usr/src/app/requirements.txt
+RUN python -m pip install -r requirements.txt
 
 EXPOSE 5000
 
